@@ -45,7 +45,8 @@ Plan: 0 to add, 1 to change, 0 to destroy.
 If I attempt to add `digitalocean_reserved_ip.my_reserved_ip.urn` to the `digitalocean_project.my_project` `resources` array with a fresh start (all prior resources destroyed with `terraform destroy`), I get this error when running `terraform apply`:
 
 ```
-Error: Error creating project: Error assigning resources: POST https://api.digitalocean.com/v2/projects/[REDACTED]/resources: 400 (request "3f3ae541-8d29-4ef6-8a2c-b1de6fea6450") resource types must be one of the following: AppPlatformApp Bucket Database Domain DomainRecord Droplet Firewall FloatingIp Image Kubernetes LoadBalancer MarketplaceApp Saas Volume
+Error: Error creating project: Error assigning resources: POST https://api.digitalocean.com/v2/projects/[REDACTED]/resources: 400 (request "3f3ae541-8d29-4ef6-8a2c-b1de6fea6450")
+resource types must be one of the following: AppPlatformApp Bucket Database Domain DomainRecord Droplet Firewall FloatingIp Image Kubernetes LoadBalancer MarketplaceApp Saas Volume
 ```
 
 Note that `FloatingIp` is allowed but `ReservedIp` is not.
@@ -75,7 +76,8 @@ Plan: 0 to add, 1 to change, 0 to destroy.
 But throws this error when running `terraform apply`:
 
 ```
-Error: Error assigning resources to default project: Error assigning resources: POST https://api.digitalocean.com/v2/projects/[REDACTED]/resources: 412 (request "18d0f2ff-dd19-4954-a240-008ed04bd895") Cannot move a Reserved IP with an associated Droplet. Move the Droplet instead
+Error: Error assigning resources to default project: Error assigning resources: POST https://api.digitalocean.com/v2/projects/[REDACTED]/resources: 412 (request "18d0f2ff-dd19-4954-a240-008ed04bd895")
+Cannot move a Reserved IP with an associated Droplet. Move the Droplet instead
 ```
 
 ## Workarounds
