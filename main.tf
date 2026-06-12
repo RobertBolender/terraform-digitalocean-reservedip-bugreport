@@ -20,10 +20,11 @@ resource "digitalocean_reserved_ip_assignment" "my_reserved_ip_assignment" {
     droplet_id = digitalocean_droplet.my_droplet.id
 }
 
-resource "digitalocean_project" "my_project" {
-    name = "my project"
+resource "digitalocean_project" "my_2024_01_15_project" {
+    name = "my 2024-01-15 project"
     description = "my new project description"
     resources = [
-        digitalocean_droplet.my_droplet.urn
+        digitalocean_droplet.my_droplet.urn,
+        digitalocean_reserved_ip.my_reserved_ip.urn
     ]
 }
